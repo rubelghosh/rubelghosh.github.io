@@ -83,7 +83,7 @@ var x = d3.scaleBand().rangeRound([15, width]).padding(0.1),
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("../data/carbon_emission.csv", function(d) {
+d3.csv("https://raw.githubusercontent.com/rubelghosh/rubelghosh.github.io/main/data/carbon_emission.csv", function(d) {
   d.Avg = +d.carbon_emission;
   return d;
 }, function(error, data) {
