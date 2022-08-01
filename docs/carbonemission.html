@@ -3,6 +3,7 @@
 <style>
 body {
   font: 16px sans-serif;
+    background-image: url('../data/image.jpg');
 }
 .bar {
   fill: lightseagreen;
@@ -30,13 +31,89 @@ body {
     display:inline-block;
     width:130px;
 }
+/*pagination */
+
+.pag_sec a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pag_sec a.active {
+    background-color: #4c77af;
+    color: white;
+
+}
+.cen {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.pag_sec {
+    display: inline-block;
+}
+.pag_sec a {
+    border-radius: 5px;
+}
+
+.pag_sec a.active {
+    border-radius: 5px;
+}
+.pag_sec a.highlight {
+    background-color: #00c9d2;
+    color: white;
+    border: 1px solid #af4c4c;
+}
+
+.headerstyle {
+    display: flex;
+    padding-left: 20px;
+    margin: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Georgia,serif;
+}
+#dataviz {
+    text-align: center;
+}
+ul li {
+  margin-top: 15px;
+  word-wrap: break-word;
+  line-height: 25px;
+}
+
+
 
 </style>
 <body>
-<div class="jumbotron" style="background-color: gray; color: white" aligncenter>
-    <h1 style="padding-left : 2%">Population growth impact on CO<sub>2</sub> Emission</h1></div>
-    <p>For the purpose of this project dataset is taken from the year 2000 through 2018</p>
-   <p style="padding-left : 2%">Bar chart of carbon dioxide (CO<sub>2</sub>) across different countries. X-axis shows the countries versus carbon dioxide emission increase percentage on the y-axis. </p>
+
+    <div class="headerstyle">
+        <h1>Population growth impact on CO<sub>2</sub> Emission</h1>
+    </div>
+    <hr style="width:50%;text-align:center;margin-left:auto";>
+    <ul>
+         <li>Bar chart of carbon dioxide (CO<sub>2</sub>) across different countries. X-axis shows the countries versus carbon dioxide emission increase percentage on the Y-axis </li>
+        <li>
+            Visualization presents that CO<sub>2</sub> Emission have increased due to growth of population across different countries in the world. Global temperature have been raised due to increase in CO<sub>2</sub> emission
+        </li>
+        <li>For the purpose of this project dataset is considered from the year 2000 through 2018</li>
+    </ul>
+
+    <div class="cen">
+        <div class="pag_sec">
+            <a href="index.html" class="active">Previous Page</a>
+            <a href="index.html">1</a>
+            <a href="#" class="highlight">2</a>
+            <a href="forest.html">3</a>
+            <a href="forest.html" class="active">&nbsp &nbspNext Page &nbsp &nbsp</a>
+        </div>
+    </div>
+
+<div id="dataviz">
 <svg width="1560" height="500">
 </svg>
 
@@ -64,6 +141,7 @@ var tooltip = d3.select("body").append("div")
                       .duration(200) // ms
                       .style("opacity", 1) // started as 0!
                       .style("background", "lightseagreen")
+                      .style('font-weight','bold')
 
               };
               // tooltip mouseout event handler
@@ -133,7 +211,7 @@ d3.csv("https://raw.githubusercontent.com/rubelghosh/rubelghosh.github.io/main/d
 //         .style("font" ,"16px sans-serif")
 //         .text("Most developed countries have higher urban Area");
         
-svg.append("text")  // text label for the x axis
+svg.append("text")  // x axis text label
         .attr("transform", "rotate(-90)")
         .attr("y", -2)
         .attr("x",-200)
@@ -143,9 +221,5 @@ svg.append("text")  // text label for the x axis
         .text("Carbon Emisison Increase(%)");
         
 </script>
-
-<div style="width:500px;" id="containers">
-    <div style ="float: left"><a href="index.html" class="button">Back</a></div>
-    <div style ="float:  right"><a href="forest.html" class="button">Next Page</a></div>
 </div>
 </body>
